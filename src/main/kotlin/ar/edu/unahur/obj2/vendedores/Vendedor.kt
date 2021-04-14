@@ -45,10 +45,14 @@ abstract class Vendedor {
 
   //devuelve boleano
   abstract fun esInfluyente() : Boolean
+
+  //Devuelve boleano
+  fun esGenerico() = this.otrasCertificaciones() >= 1
 }
 
 // En los parámetros, es obligatorio poner el tipo
 class VendedorFijo(val ciudadOrigen: Ciudad) : Vendedor() {
+
   //devuelve boleano
   override fun puedeTrabajarEn(ciudad: Ciudad): Boolean {
     return ciudad == ciudadOrigen

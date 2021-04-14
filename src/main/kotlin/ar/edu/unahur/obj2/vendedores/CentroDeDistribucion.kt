@@ -18,4 +18,16 @@ class CentroDeDistribucion(val ciudadActual: Ciudad) {
 
     //devuelve boleano
     fun estaRegistrado(vendedor: Vendedor) = vendedoresConLosQueTrabajan.contains(vendedor)
+
+    //devuelve el vendedor con mayor puntaje
+    fun vendedorEstrella() = vendedoresConLosQueTrabajan.maxBy { vendedores -> vendedores.puntajeCertificaciones()}
+
+    //devuelve boleano
+    fun puedeCubrir(ciudad: Ciudad) = vendedoresConLosQueTrabajan.any{vendedores -> vendedores.puedeTrabajarEn(ciudad)}
+
+    //Devuelve una coleccion de vendedores que son genericos
+    fun vendedoresGenericos() = vendedoresConLosQueTrabajan.filter { vendedores -> vendedores.esGenerico() }.toSet()
+
+    //devuelve boleano
+    fun esRobusto() = vendedoresConLosQueTrabajan.count{it.esFirme()} >= 3
 }
