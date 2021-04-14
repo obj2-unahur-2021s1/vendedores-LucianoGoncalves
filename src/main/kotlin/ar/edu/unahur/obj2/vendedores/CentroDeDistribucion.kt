@@ -1,15 +1,21 @@
 package ar.edu.unahur.obj2.vendedores
 
 import java.lang.Exception
-
-class CentroDeDistribucion(val ciudad: Ciudad) {
+//ciudad actual es de tipo ciudad
+class CentroDeDistribucion(val ciudadActual: Ciudad) {
+    //vendedoresConLosQueTrabajan es de tipo lista
     val vendedoresConLosQueTrabajan = mutableListOf<Vendedor>()
+
+    //no devuelve nada
     fun agregarVendedor(vendedor: Vendedor) {
         if (this.estaRegistrado(vendedor)){
             throw Exception("el vendedor está registrado")
         }
-        vendedor.add(vendedor)
+        vendedoresConLosQueTrabajan.add(vendedor)
     }
+    //No devuelve nada
+    fun sacarVendedor(vendedor: Vendedor) = vendedoresConLosQueTrabajan.remove(vendedor)
 
-    fun sacarVendedor(vendedor: Vendedor) = vendedor.remove(vendedor)
+    //devuelve boleano
+    fun estaRegistrado(vendedor: Vendedor) = vendedoresConLosQueTrabajan.contains(vendedor)
 }
