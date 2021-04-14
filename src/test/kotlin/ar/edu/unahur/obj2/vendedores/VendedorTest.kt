@@ -12,7 +12,7 @@ class VendedorTest : DescribeSpec({
     val obera = Ciudad(misiones)
     val vendedorFijo = VendedorFijo(obera)
 
-    describe("puedeTrabajarEn") {
+    describe("puedeTrabajarEn:") {
       it("su ciudad de origen") {
         vendedorFijo.puedeTrabajarEn(obera).shouldBeTrue()
       }
